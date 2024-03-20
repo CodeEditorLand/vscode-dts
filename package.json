@@ -1,21 +1,29 @@
 {
 	"name": "@vscode/dts",
-	"version": "0.4.0",
+	"version": "0.0.1",
+	"private": false,
 	"description": "CLI utility for downloading vscode.d.ts and vscode.proposed.d.ts",
-	"author": {
-		"name": "Microsoft Corporation"
+	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"bugs": {
+		"url": "https://github.com/CodeEditorLand/Foundation/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/microsoft/vscode-dts.git"
+		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
 	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "Playform",
+		"email": "Hello@Playform.Cloud",
+		"url": "https://playform.cloud"
+	},
+	"type": "module",
 	"bin": "index.js",
 	"scripts": {
 		"compile": "tsc -p .",
-		"watch": "tsc -w -p .",
-		"prepublishOnly": "tsc -p ."
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
+		"watch": "tsc -w -p ."
 	},
-	"license": "MIT",
 	"dependencies": {
 		"https-proxy-agent": "7.0.4",
 		"minimist": "1.2.8",
@@ -26,6 +34,10 @@
 		"@types/node": "20.11.30",
 		"@types/prompts": "2.4.9",
 		"@types/rimraf": "3.0.2",
-		"typescript": "5.4.2"
+		"typescript": "5.4.2",
+		"typescript-esbuild": "latest"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
