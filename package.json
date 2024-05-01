@@ -28,17 +28,17 @@
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"https-proxy-agent": "^7.0.0",
-		"minimist": "^1.2.8",
-		"prompts": "^2.4.2"
+		"https-proxy-agent": "7.0.4",
+		"minimist": "1.2.8",
+		"prompts": "2.4.2"
 	},
 	"devDependencies": {
 		"@playform/build": "0.0.7",
 		"@playform/document": "0.0.6",
-		"@types/minimist": "^1.2.2",
-		"@types/node": "^14.0.0",
-		"@types/prompts": "^2.4.4",
-		"@types/rimraf": "^3.0.2"
+		"@types/minimist": "1.2.5",
+		"@types/node": "20.12.7",
+		"@types/prompts": "2.4.9",
+		"@types/rimraf": "3.0.2"
 	},
 	"publishConfig": {
 		"access": "public"
