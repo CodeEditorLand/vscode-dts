@@ -36,7 +36,7 @@
 		"@playform/build": "0.0.7",
 		"@playform/document": "0.0.6",
 		"@types/minimist": "1.2.5",
-		"@types/node": "20.12.7",
+		"@types/node": "20.12.10",
 		"@types/prompts": "2.4.9",
 		"@types/rimraf": "3.0.2"
 	},
