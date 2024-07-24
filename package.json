@@ -7,14 +7,14 @@
 		"prepublishOnly": "tsc -p ."
 	},
 	"dependencies": {
-		"https-proxy-agent": "7.0.0",
+		"https-proxy-agent": "7.0.5",
 		"minimist": "1.2.8",
 		"prompts": "2.4.2"
 	},
 	"devDependencies": {
-		"@types/minimist": "1.2.2",
-		"@types/node": "14.0.0",
-		"@types/prompts": "2.4.4",
+		"@types/minimist": "1.2.5",
+		"@types/node": "20.14.12",
+		"@types/prompts": "2.4.9",
 		"@types/rimraf": "3.0.2"
 	}
 }
