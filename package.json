@@ -1,20 +1,21 @@
 {
-	"bin": "index.js",
-	"dependencies": {
-		"https-proxy-agent": "^7.0.0",
-		"minimist": "^1.2.8",
-		"prompts": "^2.4.2"
-	},
-	"description": "CLI utility for downloading vscode.d.ts and vscode.proposed.d.ts",
-	"devDependencies": {
-		"@types/minimist": "^1.2.2",
-		"@types/node": "^14.0.0",
-		"@types/prompts": "^2.4.4",
-		"@types/rimraf": "^3.0.2"
-	},
 	"name": "@vscode/dts",
+	"description": "CLI utility for downloading vscode.d.ts and vscode.proposed.d.ts",
+	"bin": "index.js",
 	"scripts": {
 		"compile": "tsc -p .",
 		"prepublishOnly": "tsc -p ."
+	},
+	"dependencies": {
+		"https-proxy-agent": "7.0.5",
+		"minimist": "1.2.8",
+		"prompts": "2.4.2"
+	},
+	"description": "CLI utility for downloading vscode.d.ts and vscode.proposed.d.ts",
+	"devDependencies": {
+		"@types/minimist": "1.2.5",
+		"@types/node": "20.14.12",
+		"@types/prompts": "2.4.9",
+		"@types/rimraf": "3.0.2"
 	}
 }
