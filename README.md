@@ -2,7 +2,7 @@
 
 CLI utility for downloading vscode.d.ts and vscode.proposed.d.ts
 
-## Usage
+## 🛠️ Usage
 
 ```bash
 ~ > npx vscode-dts
