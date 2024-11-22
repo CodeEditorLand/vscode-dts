@@ -20,19 +20,24 @@ if (argv._.length === 0 || argv["h"] || argv["help"]) {
 
 function handleDev(gitTagOrBranch: string = "main") {
 	const proposalNames = getEnabledApiProposals();
+
 	if (proposalNames.length === 0) {
 		console.error(
 			`No proposals in the "enabledApiProposals"-property of package.json found.`,
 		);
+
 		return;
 	}
 
 	for (const info of proposalNames) {
 		const idx = info.lastIndexOf("@");
+
 		const name = idx < 0 ? info : info.slice(0, idx);
+
 		const version = idx < 0 ? undefined : info.slice(idx + 1);
 
 		const url = `https://raw.githubusercontent.com/microsoft/vscode/${gitTagOrBranch}/src/vscode-dts/vscode.proposed.${name}.d.ts`;
+
 		const outPath = path.resolve(
 			process.cwd(),
 			`./vscode.proposed.${name}.d.ts`,
@@ -45,8 +50,11 @@ function handleDev(gitTagOrBranch: string = "main") {
 			.then(async () => {
 				if (version) {
 					const src = await fs.promises.readFile(outPath, "utf-8");
+
 					const versionRegex = /\/\/\s*version:\s*(\d+)/i;
+
 					const versionMatch = versionRegex.exec(src)[1];
+
 					if (versionMatch !== version) {
 						console.log(
 							toRedString(
@@ -66,12 +74,15 @@ function handleDev(gitTagOrBranch: string = "main") {
 
 function getEnabledApiProposals(): string[] {
 	let dir = process.cwd();
+
 	while (true) {
 		const packageJsonPath = path.resolve(dir, "./package.json");
+
 		try {
 			const packageJson = JSON.parse(
 				fs.readFileSync(packageJsonPath, "utf-8"),
 			);
+
 			return Array.isArray(packageJson.enabledApiProposals)
 				? packageJson.enabledApiProposals
 				: [];
@@ -80,6 +91,7 @@ function getEnabledApiProposals(): string[] {
 		}
 
 		const next = path.dirname(dir);
+
 		if (next === dir) {
 			return [];
 		} else {
@@ -95,7 +107,9 @@ function handleDefaultDownload(gitTagOrBranch: string, force?: boolean) {
 	}
 
 	const url = `https://raw.githubusercontent.com/microsoft/vscode/${gitTagOrBranch}/src/vscode-dts/vscode.d.ts`;
+
 	const legacyUrl = `https://raw.githubusercontent.com/microsoft/vscode/${gitTagOrBranch}/src/vs/vscode.d.ts`;
+
 	const outPath = path.resolve(process.cwd(), "./vscode.d.ts");
 	console.log(`Downloading vscode.d.ts\nTo:   ${outPath}\nFrom: ${url}`);
 
@@ -136,6 +150,7 @@ function download(link: string, outPath: string) {
 		https.get(options, (res) => {
 			if (res.statusCode !== 200) {
 				reject(`Failed to get ${link}`);
+
 				return;
 			}
 
