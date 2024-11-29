@@ -42,6 +42,7 @@ function handleDev(gitTagOrBranch: string = "main") {
 			process.cwd(),
 			`./vscode.proposed.${name}.d.ts`,
 		);
+
 		console.log(
 			`Downloading vscode.proposed.${toGreenString(name)}.d.ts\nTo:   ${outPath}\nFrom: ${url}`,
 		);
@@ -111,6 +112,7 @@ function handleDefaultDownload(gitTagOrBranch: string, force?: boolean) {
 	const legacyUrl = `https://raw.githubusercontent.com/microsoft/vscode/${gitTagOrBranch}/src/vs/vscode.d.ts`;
 
 	const outPath = path.resolve(process.cwd(), "./vscode.d.ts");
+
 	console.log(`Downloading vscode.d.ts\nTo:   ${outPath}\nFrom: ${url}`);
 
 	download(url, outPath)
@@ -155,6 +157,7 @@ function download(link: string, outPath: string) {
 			}
 
 			const outStream = fs.createWriteStream(outPath);
+
 			outStream.on("close", () => {
 				resolve();
 			});
@@ -167,6 +170,7 @@ function download(link: string, outPath: string) {
 function forceRemoveNodeModulesTypes() {
 	if (fs.existsSync("node_modules/vscode/vscode.d.ts")) {
 		fs.unlinkSync("node_modules/vscode/vscode.d.ts");
+
 		console.log("Removed node_modules/vscode/vscode.d.ts");
 	} else if (fs.existsSync("node_modules/@types/vscode/index.d.ts")) {
 		fs.rm(
@@ -177,6 +181,7 @@ function forceRemoveNodeModulesTypes() {
 					console.error(
 						"Failed to remove node_modules/@types/vscode",
 					);
+
 					console.error(err);
 				} else {
 					console.log("Removed node_modules/@types/vscode");
@@ -196,6 +201,7 @@ function removeNodeModulesTypes() {
 		}).then((res) => {
 			if (res.value) {
 				fs.unlinkSync("node_modules/vscode/vscode.d.ts");
+
 				console.log("Removed node_modules/vscode/vscode.d.ts");
 			}
 		});
@@ -215,6 +221,7 @@ function removeNodeModulesTypes() {
 							console.error(
 								"Failed to remove node_modules/@types/vscode",
 							);
+
 							console.error(err);
 						} else {
 							console.log("Removed node_modules/@types/vscode");
